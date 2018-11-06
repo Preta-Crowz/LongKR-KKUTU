@@ -1,0 +1,20 @@
+{% extends 'KKUTU/templates/base.html' %}
+
+{% block header %}
+  <h1>{% block title %}회원가입{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>아이디 (영어, 숫자)</h2>
+  <ul><li>{{i}}</li></ul>
+  <h2>비밀번호</h2>
+  <ul><li>{{p}}</li></ul>
+  {% if n != i %}
+  <h2>유저명</h2>
+  <ul><li>{{n}}</li></ul>
+  {% endif %}
+  {% if d %}
+  <h2>이메일 주소</h2>
+  <ul><li>{{m}}</li></ul>
+  {% endif %}
+{% endblock %}

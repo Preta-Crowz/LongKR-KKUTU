@@ -1,0 +1,56 @@
+<!doctype html>
+<head>
+<title>{% block title %}{% endblock %} - 한글 도메인 축약 서비스 긴.한국</title>
+<link rel="stylesheet" href="{{ url_for('load', sdir='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('load', sdir='in_portal.css') }}">
+<link rel="stylesheet" href="{{ url_for('load', sdir='in_game_KKUTU.css') }}">
+<script type="text/javascript" src="{{ url_for('load', sdir='jquery.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('load', sdir='global.edited.js') }}"></script>
+<script>
+  $("pre").remove()
+</script>
+<meta property="og:image" content="http://긴.한국/glob/logo.png">
+<meta property="og:url" content="http://긴.한국/">
+<meta property="og:title" content="누구보다 짧게, 긴.한국">
+<meta property="og:description" content="한글 도메인 축약 서비스 긴.한국">
+</head>
+<body>
+<div id="Top">
+  <div class="Menu">
+    <div class="menu-btn" id="menu-item-HOME" onclick="location.href = &quot;/&quot;;">긴.한국</div>
+    <div id="quick-search">
+      <input id="quick-search-tf" placeholder="단축할 주소">
+      <div class="autocomp" id="ac-quick-search-tf" style="margin-top: 28px; width: 105px; display: none;"></div>
+      <button id="quick-search-btn">단축</button>
+    </div>
+    <div id="account"><span id="profile"></span>
+      {% if session['logged'] %}<div id="account-info"><a href="{{ url_for('logout') }}">{{ session['username'] }}</a></div>
+      {% else %}<div id="account-info"><a href="{{ url_for('login') }}">가입/로그인</a></div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div id="Jungle">
+  <img id="Background" src="" class="jt-image" style="background-image: url(&quot;{{ url_for('img', sdir='gamebg.png') }}&quot;); background-size: 200px 200px;">
+</div>
+<div id="Middle">
+  <div style="float: left; width: 100%; margin: 5px 0px;"></div>
+  <div style="float: left; width: 100%;"></div>
+  <div style="float: left; width: calc(100% - 4px); border: 2px solid #CCC; margin-top: 10px; background-color: #EEE;">
+    <section class="content" style="color:#000000;">
+      <header>
+        {% block header %}{% endblock %}
+      </header>
+      {% block content %}{% endblock %}
+    </section>
+  </div>
+  <div style="float: left; width: 100%; margin: 10px 0px;"></div>
+</div>
+<div id="Bottom">
+  <div class="bottom-legal">
+    <div style="color: #666;">본 스킨은 쪼리핑의 끄투를 기반으로 제작되었으며, GPL라이선스를 따라 공개 중입니다.<br>이미지 파일은 CC-BY를 적용받으며, 원작자는 쪼리핑입니다.<br>자세한 내용은 본 스킨의 레포지토리를 확인하십시오:<a target="_blank" href="https://github.com/Preta-Crowz/LongKR-KKUTU">https://github.com/Preta-Crowz/LongKR-KKUTU</div>
+    <div style="color: #666;">긴.한국 Copyright (C) 2018 CrowZ(preta@crowz.r-e.kr)<br>이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않습니다.<br>이 프로그램은 자유 소프트웨어이며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다.<br>이에 대한 자세한 사항은 본 프로그램의 구현을 담은 다음 레포지토리에서 확인하십시오:<a target="_blank" href="https://github.com/Preta-Crowz/LongKR">https://github.com/Preta-Crowz/LongKR</a>
+    </div>
+  </div>
+</div>
+</body>

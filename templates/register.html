@@ -1,0 +1,22 @@
+{% extends 'KKUTU/templates/base.html' %}
+
+{% block header %}
+  <h1>{% block title %}회원가입{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% if error != None %}
+    <b style="color:#ff5555;">{{ error }}</b>
+  {% endif %}
+  <form method="post">
+    <label for="id">아이디 (영어, 숫자)</label>
+    <input name="id" id="id" required {% if i != None %}value={{i}}{% endif %}>
+    <label for="password">비밀번호</label>
+    <input type="password" name="password" id="password" required {% if p!= None %}value={{p}}{% endif %}>
+    <label for="nickname">유저명</label>
+    <input name="nickname" id="nickname" {% if n != None %}value={{n}}{% endif %}>
+    <label for="mail">이메일 주소</label>
+    <input name="mail" id="mail" {% if m != None %}value={{m}}{% endif %}>
+    <input type="submit" value="가입">
+  </form>
+{% endblock %}

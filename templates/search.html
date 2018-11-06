@@ -1,0 +1,30 @@
+{% extends 'KKUTU/templates/base.html' %}
+
+{% block header %}
+  <h1>{% block title %}검색{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="query">검색할 내용을 입력하세요</label>
+    <input name="query" id="query" required {% if q != None %}value={{q}}{% endif %}>
+    <select name="type">
+      <optgroup label="주소">
+        <option value="원본">원본</option>
+        <option value="단축">단축</option>
+        <option value="단축">소유자</option>
+      </optgroup>
+      <optgroup label="사용자">
+        <option value="아이디">아이디</option>
+        <option value="닉네임">닉네임</option>
+      </optgroup>
+    </select>
+    <input type="submit" value="검색">
+  </form>
+  <form method="post">
+    <input type="submit" value="지금 등록" disabled>
+  </form>
+  {% if data != None %}
+    {{ data }}
+  {% endif %}
+{% endblock %}
